@@ -102,7 +102,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://gracehtet.github.io/AwesomeBooks/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -259,6 +259,6 @@ I would like to thank Microverse, and my coding partners(Ferizad, Tamara).
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE.md) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
