@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Awesome Books</title>
-    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-
+    <link href="./css/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
     <h1>Awesome Books</h1>
-    <div class="book-list">
+    <div class="book-list"></div>
+    <div class="add-new-book">
+      <div class="black-line"></div>
+      <h2>Add new book</h2>
     </div>
-
     <form action="" method="">
-        <div>
-            <input type="text" name="titleInput" id="titleInput" class="form-control" placeholder="Title"/>
-        </div>
-        <br/>
-        <div> 
-            <input type="text" name="authorInput" id="authorInput" class="form-control" placeholder="Author"/>
-        </div>
-        <br/>
+      <div>
+        <input
+          type="text"
+          name="titleInput"
+          id="titleInput"
+          class="form-control"
+          placeholder="Title"
+        />
+      </div>
+      <br />
+      <div>
+        <input
+          type="text"
+          name="authorInput"
+          id="authorInput"
+          class="form-control"
+          placeholder="Author"
+        />
+      </div>
+      <br />
+      <div class="add-button">
         <button class="add-btn">Add</button>
+      </div>
     </form>
 
     <script src="./js/app.js" type="text/javascript"></script>
-</body>
+  </body>
 </html>

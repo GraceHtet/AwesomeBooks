@@ -17,21 +17,25 @@ function addBook() {
 function showBook() {
   bookList.innerHTML = '';
   collections.forEach((collection, index) => {
-    bookList.innerHTML += `<div class='book${index + 1}' id="${index}">
+    bookList.innerHTML += `<div class='book-rows book${
+      index + 1
+    }' id="${index}">
             <p class="book-info">
-                <span class="title">${collection.title}</span>
+                <span class="title">"${collection.title}" by </span>
                 <br/>
-                <span class="author">${collection.author}</span>
+                <span class="author">&nbsp;${collection.author}</span>
             </p>
             <button class="remove-btn">Remove</button>
-            <hr/>
+           
     </div>`;
   });
 }
 
 function removeBook(cur) {
   cur.parentElement.remove();
-  collections = collections.filter((collection, index) => index !== Number(cur.parentElement.id));
+  collections = collections.filter(
+    (collection, index) => index !== Number(cur.parentElement.id),
+  );
   localStorage.setItem('collections', JSON.stringify(collections));
 }
 
