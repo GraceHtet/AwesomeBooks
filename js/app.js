@@ -4,52 +4,52 @@ const titleInput = document.querySelector('#titleInput');
 const authorInput = document.querySelector('#authorInput');
 const addBtn = document.querySelector('.add-btn');
 
-let collections = JSON.parse(localStorage.getItem('collections')) || [];
+class BookFun {
+  constructor() {
+    this.collections = JSON.parse(localStorage.getItem('collections')) || [];
+  }
 
-function addBook() {
-  collections.push({
-    title: titleInput.value,
-    author: authorInput.value,
-  });
-  localStorage.setItem('collections', JSON.stringify(collections));
+  removeBook(cur) {
+    cur.parentElement.remove();
+    this.collections = this.collections.filter(
+      (collection, index) => index !== Number(cur.parentElement.id),
+    );
+
+    localStorage.setItem('collections', JSON.stringify(this.collections));
+  }
+
+  showBook() {
+    bookList.innerHTML = '';
+    this.collections.forEach((collection, index) => {
+      bookList.innerHTML += `<div id="${index}" class='books'>
+              <p class="book-info">
+                  <span class="title">"${collection.title}" </span>
+                  <span>&nbsp;by&nbsp;</span>
+                  <span class="author">${collection.author}</span>
+              </p>
+              <button class="remove-btn">Remove</button>
+      </div>`;
+    });
+  }
+
+  addBook(book) {
+    this.collections.push(book);
+    localStorage.setItem('collections', JSON.stringify(this.collections));
+  }
 }
-
-function showBook() {
-  bookList.innerHTML = '';
-  collections.forEach((collection, index) => {
-    bookList.innerHTML += `<div class='book-rows book${
-      index + 1
-    }' id="${index}">
-            <p class="book-info">
-                <span class="title">"${collection.title}" by </span>
-                <br/>
-                <span class="author">&nbsp;${collection.author}</span>
-            </p>
-            <button class="remove-btn">Remove</button>
-           
-    </div>`;
-  });
-}
-
-function removeBook(cur) {
-  cur.parentElement.remove();
-  collections = collections.filter(
-    (collection, index) => index !== Number(cur.parentElement.id),
-  );
-  localStorage.setItem('collections', JSON.stringify(collections));
-}
-
-showBook();
+const bookFun = new BookFun();
+bookFun.showBook();
 
 form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const book = { title: titleInput.value, author: authorInput.value };
+
   if (titleInput.value !== '' && authorInput.value !== '') {
     addBtn.disabled = false;
-    addBook();
+    bookFun.addBook(book);
     titleInput.value = '';
     authorInput.value = '';
-    showBook();
-
-    e.preventDefault();
+    bookFun.showBook(book);
   } else {
     addBtn.disabled = true;
   }
@@ -58,6 +58,6 @@ form.addEventListener('submit', (e) => {
 bookList.addEventListener('click', (e) => {
   if (e.target.className.includes('remove-btn')) {
     const targetEl = e.target;
-    removeBook(targetEl);
+    bookFun.removeBook(targetEl);
   }
 });
