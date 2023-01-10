@@ -1,21 +1,21 @@
-const form = document.querySelector("form");
-const bookList = document.querySelector(".book-list");
-const titleInput = document.querySelector("#titleInput");
-const authorInput = document.querySelector("#authorInput");
-const addBtn = document.querySelector(".add-btn");
+const form = document.querySelector('form');
+const bookList = document.querySelector('.book-list');
+const titleInput = document.querySelector('#titleInput');
+const authorInput = document.querySelector('#authorInput');
+const addBtn = document.querySelector('.add-btn');
 
-let collections = JSON.parse(localStorage.getItem("collections")) || [];
+let collections = JSON.parse(localStorage.getItem('collections')) || [];
 
 function addBook() {
   collections.push({
     title: titleInput.value,
     author: authorInput.value,
   });
-  localStorage.setItem("collections", JSON.stringify(collections));
+  localStorage.setItem('collections', JSON.stringify(collections));
 }
 
 function showBook() {
-  bookList.innerHTML = "";
+  bookList.innerHTML = '';
   collections.forEach((collection, index) => {
     bookList.innerHTML += `<div class='book-rows book${
       index + 1
@@ -34,19 +34,19 @@ function showBook() {
 function removeBook(cur) {
   cur.parentElement.remove();
   collections = collections.filter(
-    (collection, index) => index !== Number(cur.parentElement.id)
+    (collection, index) => index !== Number(cur.parentElement.id),
   );
-  localStorage.setItem("collections", JSON.stringify(collections));
+  localStorage.setItem('collections', JSON.stringify(collections));
 }
 
 showBook();
 
-form.addEventListener("submit", (e) => {
-  if (titleInput.value !== "" && authorInput.value !== "") {
+form.addEventListener('submit', (e) => {
+  if (titleInput.value !== '' && authorInput.value !== '') {
     addBtn.disabled = false;
     addBook();
-    titleInput.value = "";
-    authorInput.value = "";
+    titleInput.value = '';
+    authorInput.value = '';
     showBook();
 
     e.preventDefault();
@@ -55,8 +55,8 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-bookList.addEventListener("click", (e) => {
-  if (e.target.className.includes("remove-btn")) {
+bookList.addEventListener('click', (e) => {
+  if (e.target.className.includes('remove-btn')) {
     const targetEl = e.target;
     removeBook(targetEl);
   }
