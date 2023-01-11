@@ -5,12 +5,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#contact,
-#list,
-#form {
-  display: none;
-}
-
 .nav-bar {
   margin: 10px;
   padding: 15px;
@@ -140,4 +134,12 @@ footer {
 
 footer h3 {
   padding: 15px;
+}
+
+.contents {
+  display: none;
+}
+
+.contents.active {
+  display: block;
 }

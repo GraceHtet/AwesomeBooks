@@ -69,57 +69,23 @@ bookList.addEventListener('click', (e) => {
 // Date and time
 const clockElement = document.getElementById('clock');
 
-function clock() {
+const clock = () => {
   clockElement.textContent = new Date().toString();
-}
+};
 
 setInterval(clock, 1000);
 
-// nav bar
-/* eslint-disable no-unused-vars */
-const displaySection = function displaySection(section) {
-  const sectionP = document.getElementById('description');
-  const heading = document.getElementById('title');
-  const sectionList = document.getElementById('list');
-  const sectionForm = document.getElementById('form');
-  const sectionContact = document.getElementById('contact');
+const navMenus = document.querySelectorAll('nav a');
+const contentEls = document.querySelectorAll('.contents');
 
-  switch (section) {
-    case 'list':
-      heading.innerHTML = 'All Awesome Books';
-      sectionList.style.display = 'block';
-      sectionForm.style.display = 'none';
-      sectionContact.style.display = 'none';
-      sectionP.style.display = 'none';
-      break;
+for (let i = 0; i < navMenus.length; i += 1) {
+  navMenus[i].addEventListener('click', () => {
+    contentEls.forEach((content, idx) => {
+      if (idx !== i && content.className.includes('active')) {
+        content.classList.remove('active');
+      }
+    });
 
-    case 'form':
-      heading.innerHTML = 'Add a New Book';
-      sectionList.style.display = 'none';
-      sectionForm.style.display = 'block';
-      sectionContact.style.display = 'none';
-      sectionP.style.display = 'none';
-      break;
-
-    case 'contact':
-      heading.innerHTML = 'Contact Information';
-      sectionList.style.display = 'none';
-      sectionForm.style.display = 'none';
-      sectionContact.style.display = 'block';
-      sectionP.style.display = 'none';
-      break;
-
-    case 'desc':
-      heading.innerHTML = 'All Awesome Books';
-      sectionList.style.display = 'none';
-      sectionForm.style.display = 'none';
-      sectionContact.style.display = 'none';
-      sectionP.style.display = 'block';
-      break;
-
-    default:
-      break;
-  }
-};
-/* eslint-disable no-unused-vars */
-// used becouse of error-> 'displaySection' is assigned a value but never used
+    contentEls[i].classList.add('active');
+  });
+}
