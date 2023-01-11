@@ -10,9 +10,13 @@ class BookFun {
   }
 
   removeBook(cur) {
-    cur.parentElement.remove();
+    const curparent = cur.parentElement;
+    const curidx = Array.from(curparent.parentElement.children).indexOf(
+      curparent,
+    );
+    curparent.remove();
     this.collections = this.collections.filter(
-      (collection, index) => index !== Number(cur.parentElement.id),
+      (collection, index) => index !== curidx,
     );
 
     localStorage.setItem('collections', JSON.stringify(this.collections));
@@ -61,3 +65,27 @@ bookList.addEventListener('click', (e) => {
     bookFun.removeBook(targetEl);
   }
 });
+
+// Date and time
+const clockElement = document.getElementById('clock');
+
+const clock = () => {
+  clockElement.textContent = new Date().toString();
+};
+
+setInterval(clock, 1000);
+
+const navMenus = document.querySelectorAll('nav a');
+const contentEls = document.querySelectorAll('.contents');
+
+for (let i = 0; i < navMenus.length; i += 1) {
+  navMenus[i].addEventListener('click', () => {
+    contentEls.forEach((content, idx) => {
+      if (idx !== i && content.className.includes('active')) {
+        content.classList.remove('active');
+      }
+    });
+
+    contentEls[i].classList.add('active');
+  });
+}

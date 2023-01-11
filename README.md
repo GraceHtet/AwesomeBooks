@@ -102,7 +102,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://gracehtet.github.io/AwesomeBooks/)
+- [Live Demo Link](https://gracehtet.github.io/AwesomeBooks/PlainJS/index.html)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,50 +132,6 @@ https://github.com/GraceHtet/AwesomeBooks.git
 and you are ready to use it. You don't need to install anything or setup anything.
 Good luck!
 
-<!-- ### Install
-
-Install this project with: -->
-
-<!--
-Example command:
-```sh
-  cd my-project
-  gem install
-```
---->
-
-<!-- ### Usage
-
-To run the project, execute the following command: -->
-
-<!--
-Example command:
-```sh
-  rails server
-```
---->
-
-<!-- ### Run tests
-
-To run tests, run the following command: -->
-
-<!--
-Example command:
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-<!-- ### Deployment
-
-You can deploy this project using: -->
-
-<!--
-Example:
-```sh
-```
- -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -186,10 +142,6 @@ Example:
 
 - GitHub: [@githubhandle](https://github.com/GraceHtet)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/thiri-htet-418047204/)
-
-<!-- 👤 **Fauziyah**
-
-- GitHub: [@githubhandle](https://github.com/fauziyahzeeyah) -->
 
 👤 **Tamara Dimov**
 
@@ -207,9 +159,9 @@ Example:
 
 <!-- > Describe 1 - 3 features you will add to the project. -->
 
-- [ ] **[Add CSS Style]**
-- [ ] **[Rewrite to use JavaScript classes]**
-- [ ] **[Navigation]**
+- [ ] **[Add blogs and book reviews]**
+  <!-- - [ ] **[Rewrite to use JavaScript classes]** -->
+  <!-- - [ ] **[Navigation]** -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
